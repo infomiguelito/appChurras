@@ -8,7 +8,9 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/tv_title"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -30,6 +32,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tie_number_adult_title"
             android:layout_width="match_parent"
+            android:drawableEnd="@drawable/ic_launcher_foreground_2"
             android:layout_height="wrap_content"
             android:hint="Número de adultos" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -47,6 +50,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tie_number_kids_title"
             android:layout_width="match_parent"
+            android:drawableEnd="@drawable/ic_launcher_foreground_2"
             android:layout_height="wrap_content"
             android:hint="Número de crianças" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,17 +68,50 @@
             android:id="@+id/tie_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_launcher_foreground_2"
             android:hint="Duração do churras em HORAS" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/vertical_guideline"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Calcular"
         android:id="@+id/btn_calculate"
+        android:textStyle="bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Calcular"
+        android:backgroundTint="#C43838"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/vertical_guideline" />
+
+    <Button
+        android:id="@+id/btn_clean"
+        android:textStyle="bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Limpar"
+        android:textColor="@color/fire"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="345dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_calculate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:srcCompat="@drawable/ic_launcher_foreground_3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

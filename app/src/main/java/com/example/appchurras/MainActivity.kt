@@ -12,6 +12,13 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
+
+
+    val btnCalculate = findViewById<Button>(R.id.btn_calculate)
+    val tieNumberAdult = findViewById<TextInputEditText>(R.id.tie_number_adult_title)
+    val tieNumberKids = findViewById<TextInputEditText>(R.id.tie_number_kids_title)
+    val tieDuration = findViewById<TextInputEditText>(R.id.tie_duration)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,10 +29,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val btnCalculate = findViewById<Button>(R.id.btn_calculate)
-        val tieNumberAdult = findViewById<TextInputEditText>(R.id.tie_number_adult_title)
-        val tieNumberKids = findViewById<TextInputEditText>(R.id.tie_number_kids_title)
-        val tieDuration = findViewById<TextInputEditText>(R.id.tie_duration)
+
 
         btnCalculate.setOnClickListener {
             val textNumberAdult = tieNumberAdult.text.toString()
@@ -49,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 val refriCrianca = 0.7
                 val totalCarne = (NumberAdult * carneAdulto) + (numberKids * carneCrianca)
                 val totalCerveja = NumberAdult * cervejaAdulto
-                val totalRefrigerante = (NumberAdult * refriAdulto)+(numberKids * refriCrianca)
+                val totalRefrigerante = (NumberAdult * refriAdulto) + (numberKids * refriCrianca)
 
 
                 val intent = Intent(this, Result::class.java)
@@ -58,10 +62,14 @@ class MainActivity : AppCompatActivity() {
                     putExtra("totalCerveja", totalCerveja)
                     putExtra("totalRefri", totalRefrigerante)
                 }
+                clean()
                 startActivity(intent)
             }
-
-
         }
+    }
+    private fun clean() {
+        tieNumberAdult.setText("")
+        tieDuration.setText("")
+        tieNumberKids.setText("")
     }
 }
