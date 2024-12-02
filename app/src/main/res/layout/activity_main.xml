@@ -8,14 +8,14 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:textColor="@color/black"
         android:id="@+id/tv_title"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Churrascômetro"
+        android:textColor="@color/black"
         android:textSize="42sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:boxStrokeColor="@color/fire"
+        app:cursorColor="@color/fire"
+        app:cursorErrorColor="@color/fire"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title">
@@ -32,17 +36,22 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tie_number_adult_title"
             android:layout_width="match_parent"
-            android:drawableEnd="@drawable/ic_launcher_foreground_2"
             android:layout_height="wrap_content"
+            android:inputType="number"
+            android:drawableEnd="@drawable/ic_launcher_foreground_2"
             android:hint="Número de adultos" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/til_number_kids"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_number_kids"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:boxStrokeColor="@color/fire"
+        app:cursorColor="@color/fire"
+        app:cursorErrorColor="@color/fire"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_number_adult">
@@ -50,8 +59,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tie_number_kids_title"
             android:layout_width="match_parent"
-            android:drawableEnd="@drawable/ic_launcher_foreground_2"
+            android:inputType="number"
             android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_launcher_foreground_2"
             android:hint="Número de crianças" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,6 +70,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:cursorColor="@color/fire"
+        app:cursorErrorColor="@color/fire"
+        app:boxStrokeColor="@color/fire"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_number_kids">
@@ -68,38 +82,39 @@
             android:id="@+id/tie_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:drawableEnd="@drawable/ic_launcher_foreground_2"
             android:hint="Duração do churras em HORAS" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/vertical_guideline"
-    android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.5"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+        android:id="@+id/vertical_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <Button
         android:id="@+id/btn_calculate"
-        android:textStyle="bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Calcular"
         android:backgroundTint="#C43838"
+        android:text="Calcular"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/vertical_guideline" />
 
     <Button
         android:id="@+id/btn_clean"
-        android:textStyle="bold"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Limpar"
         android:textColor="@color/fire"
-        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout" />

@@ -14,10 +14,6 @@ import com.google.android.material.textfield.TextInputEditText
 class MainActivity : AppCompatActivity() {
 
 
-    val btnCalculate = findViewById<Button>(R.id.btn_calculate)
-    val tieNumberAdult = findViewById<TextInputEditText>(R.id.tie_number_adult_title)
-    val tieNumberKids = findViewById<TextInputEditText>(R.id.tie_number_kids_title)
-    val tieDuration = findViewById<TextInputEditText>(R.id.tie_duration)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +24,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
+        val btnCalculate = findViewById<Button>(R.id.btn_calculate)
+        val tieNumberAdult = findViewById<TextInputEditText>(R.id.tie_number_adult_title)
+        val tieNumberKids = findViewById<TextInputEditText>(R.id.tie_number_kids_title)
+        val tieDuration = findViewById<TextInputEditText>(R.id.tie_duration)
+        val btnClean = findViewById<Button>(R.id.btn_clean)
 
         btnCalculate.setOnClickListener {
             val textNumberAdult = tieNumberAdult.text.toString()
@@ -62,14 +61,15 @@ class MainActivity : AppCompatActivity() {
                     putExtra("totalCerveja", totalCerveja)
                     putExtra("totalRefri", totalRefrigerante)
                 }
-                clean()
                 startActivity(intent)
             }
         }
+        btnClean.setOnClickListener {
+            tieNumberAdult.setText("")
+            tieDuration.setText("")
+            tieNumberKids.setText("")
+        }
+
     }
-    private fun clean() {
-        tieNumberAdult.setText("")
-        tieDuration.setText("")
-        tieNumberKids.setText("")
-    }
+
 }
